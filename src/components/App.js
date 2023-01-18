@@ -63,7 +63,7 @@ function App() {
           </>
         }
         isOpen={isEditProfilePopupOpen}
-        onClose={() => closeAllPopups}
+        onClose={closeAllPopups}
       />
       <PopupWithForm
         title="Новое место"
@@ -94,7 +94,7 @@ function App() {
           </>
         }
         isOpen={isAddPlacePopupOpen}
-        onClose={() => closeAllPopups}
+        onClose={closeAllPopups}
       />
 
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
@@ -117,7 +117,7 @@ function App() {
           </>
         }
         isOpen={isEditAvatarPopupOpen}
-        onClose={() => closeAllPopups}
+        onClose={closeAllPopups}
       />
     </>
   );
