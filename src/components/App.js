@@ -3,11 +3,24 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState([]);
+
+  function handleCardClick(card) {
+    setSelectedCard(card);
+  }
+
+  function closeAllPopups() {
+    setEditProfilePopupOpen(false);
+    setAddPlacePopupOpen(false);
+    setEditAvatarPopupOpen(false);
+    setSelectedCard([]);
+  }
 
   return (
     <>
@@ -16,13 +29,14 @@ function App() {
         onEditProfile={() => setEditProfilePopupOpen(true)}
         onAddPlace={() => setAddPlacePopupOpen(true)}
         onEditAvatar={() => setEditAvatarPopupOpen(true)}
+        onCardClick={handleCardClick}
       />
       <Footer />
       <PopupWithForm
         title="Редактировать профиль"
         name="profile"
         textButton="Сохранить"
-        contentForm={
+        formContent={
           <>
             <input
               type="text"
@@ -49,13 +63,13 @@ function App() {
           </>
         }
         isOpen={isEditProfilePopupOpen}
-        onClose={() => setEditProfilePopupOpen(false)}
+        onClose={() => closeAllPopups}
       />
       <PopupWithForm
         title="Новое место"
         name="add-card"
         textButton="Создать"
-        contentForm={
+        formContent={
           <>
             <input
               type="text"
@@ -80,44 +94,16 @@ function App() {
           </>
         }
         isOpen={isAddPlacePopupOpen}
-        onClose={() => setAddPlacePopupOpen(false)}
+        onClose={() => closeAllPopups}
       />
 
-      <div className="popup popup_type_preview">
-        <div className="popup__container popup__container_type_preview">
-          <figure className="popup__margin">
-            <img className="popup__img" src="#" alt="" />
-            <figcaption className="popup__caption"></figcaption>
-          </figure>
-          <button
-            className="popup__close"
-            type="button"
-            aria-label="закрыть окно"
-          ></button>
-        </div>
-      </div>
-      <div className="popup popup_type_confirmation">
-        <div className="popup__container popup__container_type_confirmation">
-          <h2 className="popup__title">Вы уверены?</h2>
-          <button
-            className="popup__button popup__button_type_confirmation"
-            type="submit"
-            aria-label="да"
-          >
-            Да
-          </button>
-          <button
-            className="popup__close"
-            type="button"
-            aria-label="закрыть окно"
-          ></button>
-        </div>
-      </div>
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+      <PopupWithForm title="Вы уверены?" name="confirmation" textButton="Да" />
       <PopupWithForm
         title="Обновить аватар"
         name="set-avatar"
         textButton="Сохранить"
-        contentForm={
+        formContent={
           <>
             <input
               type="url"
@@ -131,7 +117,7 @@ function App() {
           </>
         }
         isOpen={isEditAvatarPopupOpen}
-        onClose={() => setEditAvatarPopupOpen(false)}
+        onClose={() => closeAllPopups}
       />
     </>
   );
