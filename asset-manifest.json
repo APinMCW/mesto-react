@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/APinMCW/mesto-react/tree/gh-pages/static/css/main.e8bcae04.css",
+    "main.js": "/APinMCW/mesto-react/tree/gh-pages/static/js/main.9c6aba60.js",
+    "static/media/Inter-Medium.otf": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Medium.16eda82a3c37a6edda09.otf",
+    "static/media/Inter-Black.otf": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Black.b2a2b192860f79c0b89c.otf",
+    "static/media/Inter-Black.woff": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Black.fd37f7e052bea1018058.woff",
+    "static/media/Inter-Regular.otf": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Regular.a416f4674fad5f019461.otf",
+    "static/media/Inter-Medium.woff": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Medium.7ddb89dcdb33dd761944.woff",
+    "static/media/Inter-Regular.woff": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Regular.34ed58565339f4f3be40.woff",
+    "static/media/Inter-Black.woff2": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Black.141c7af6ed109b318513.woff2",
+    "static/media/Inter-Medium.woff2": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Medium.6db7e439cc4b0e5c0cd2.woff2",
+    "static/media/Inter-Regular.woff2": "/APinMCW/mesto-react/tree/gh-pages/static/media/Inter-Regular.4c96ed73beaf6d1e6cc7.woff2",
+    "static/media/logo.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/logo.3d8293a241b315143f02a9df076e611b.svg",
+    "static/media/like.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/like.1ad06e85f169668a1f36.svg",
+    "index.html": "/APinMCW/mesto-react/tree/gh-pages/index.html",
+    "static/media/trash.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/trash.ce3b64935accf9b8212e.svg",
+    "static/media/likeActive.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/likeActive.35948469632d0421d697.svg",
+    "static/media/CloseIcon.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/CloseIcon.973e77374abfb705de40.svg",
+    "static/media/editPen.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/editPen.6c7bf05444b9793fdf6e.svg",
+    "static/media/editPenAvatar.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/editPenAvatar.ae1a976ddb506239e9f0.svg",
+    "static/media/butPlus.svg": "/APinMCW/mesto-react/tree/gh-pages/static/media/butPlus.bed8c136e13907f5eefb.svg",
+    "main.e8bcae04.css.map": "/APinMCW/mesto-react/tree/gh-pages/static/css/main.e8bcae04.css.map",
+    "main.9c6aba60.js.map": "/APinMCW/mesto-react/tree/gh-pages/static/js/main.9c6aba60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8bcae04.css",
+    "static/js/main.9c6aba60.js"
+  ]
+}
