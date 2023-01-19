@@ -3,21 +3,27 @@ import api from "../utils/Api";
 import Card from "./Card";
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
-  const [userName, setUserName] = useState([]);
-  const [userDescription, setUserDescription] = useState([]);
-  const [userAvatar, setUserAvatar] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getUserInfo().then((userData) => {
-      setUserName(userData.name);
-      setUserDescription(userData.about);
-      setUserAvatar(userData.avatar);
-    });
+    api
+      .getUserInfo()
+      .then((userData) => {
+        setUserName(userData.name);
+        setUserDescription(userData.about);
+        setUserAvatar(userData.avatar);
+      })
+      .catch((err) => console.log(`Ошибка при запросе данных профиля: ${err}`));
   }, []);
 
   useEffect(() => {
-    api.getCards().then((cardsData) => setCards(cardsData));
+    api
+      .getCards()
+      .then((cardsData) => setCards(cardsData))
+      .catch((err) => console.log(`Ошибка при запросе карточек: ${err}`));
   }, []);
 
   return (
@@ -53,9 +59,13 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
       </section>
       <section>
         <ul className="elements">
-          {cards.map((card) => (
-            <Card card={card} key={card._id} onCardClick={onCardClick} />
-          ))}
+          {cards.length ? (
+            cards.map((card) => (
+              <Card card={card} key={card._id} onCardClick={onCardClick} />
+            ))
+          ) : (
+            <p style={{ color: "grey" }}>Увы, карточки не загрузились</p>
+          )}
         </ul>
       </section>
     </main>
