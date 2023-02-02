@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
-import api from "../utils/Api";
+import React from "react";
 import Card from "./Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
+function Main({
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+  onCardLike,
+  onCardDelete,
+  cards
+}) {
   const currentUser = React.useContext(CurrentUserContext);
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    api
-      .getCards()
-      .then((cardsData) => setCards(cardsData))
-      .catch((err) => console.log(`Ошибка при запросе карточек: ${err}`));
-  }, []);
 
   return (
     <main>
@@ -53,7 +52,13 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
         <ul className="elements">
           {cards.length ? (
             cards.map((card) => (
-              <Card card={card} key={card._id} onCardClick={onCardClick} />
+              <Card
+                card={card}
+                key={card._id}
+                onCardClick={onCardClick}
+                onCardLike={onCardLike}
+                onCardDelete={onCardDelete}
+              />
             ))
           ) : (
             <p style={{ color: "grey" }}>Увы, карточки не загрузились</p>
