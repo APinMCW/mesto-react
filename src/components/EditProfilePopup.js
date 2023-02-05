@@ -17,7 +17,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onUpdateUser({ name, about: description });
+    onUpdateUser({ name: name, about: description });
   }
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         maxLength="40"
         id="name-input"
         onChange={handleChangeName}
-        value={name}
+        value={name || ''}
       />
       <span className="popup__error name-input-error"></span>
       <input
@@ -57,7 +57,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         maxLength="200"
         id="job-input"
         onChange={handleChangeDescription}
-        value={description}
+        value={description || ''}
       />
       <span className="popup__error job-input-error"></span>
     </PopupWithForm>

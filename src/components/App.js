@@ -31,7 +31,7 @@ function App() {
       .then(() => {
         setCards(() => cards.filter((el) => el._id !== card._id));
       })
-      .catch((err) => console.log(`Ошибка при удалении карточкиS: ${err}`));
+      .catch((err) => console.log(`Ошибка при удалении карточки: ${err}`));
   }
 
   function handleCardLike(card) {
@@ -54,11 +54,14 @@ function App() {
   }
 
   function handleUpdateUser(userInfo) {
-    api.setUserInfo(userInfo).then((data) => {
-      console.log(userInfo)
-      setCurrentUser(data);
-      closeAllPopups();
-    });
+    api
+      .setUserInfo(userInfo)
+      .then((data) => {
+        console.log(data);
+        setCurrentUser(data);
+        closeAllPopups();
+      })
+      .catch((err) => console.log(`Ошибка при обновлении профиля: ${err}`));
   }
 
   return (
