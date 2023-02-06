@@ -31,7 +31,7 @@ function App() {
     api
       .delCard(card._id)
       .then(() => {
-        setCards(() => cards.filter((el) => el._id !== card._id));
+        setCards((pervCard) => pervCard.filter((el) => el._id !== card._id));
       })
       .catch((err) => console.log(`Ошибка при удалении карточки: ${err}`));
   }
@@ -39,9 +39,14 @@ function App() {
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
-    api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
-      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-    });
+    api
+      .changeLikeCardStatus(card._id, !isLiked)
+      .then((newCard) => {
+        setCards((state) =>
+          state.map((c) => (c._id === card._id ? newCard : c))
+        );
+      })
+      .catch((err) => console.log(`Ошибка смены статуса лайка: ${err}`));
   }
 
   function handleCardClick(card) {
@@ -78,10 +83,13 @@ function App() {
   }
 
   function handleAddPlaceSubmit(card) {
-    api.setCard(card).then((data) => {
-      setCards([data, ...cards]);
-      closeAllPopups();
-    });
+    api
+      .setCard(card)
+      .then((data) => {
+        setCards([data, ...cards]);
+        closeAllPopups();
+      })
+      .catch((err) => console.log(`Ошибка при добавлении места: ${err}`));
   }
 
   return (
